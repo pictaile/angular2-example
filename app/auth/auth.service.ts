@@ -8,7 +8,7 @@ export class AuthService {
 
     constructor( private http:Http){}
 
-    getData() {
+    getRights() {
         debugger;
         let headers = new Headers();
         let params = new URLSearchParams();

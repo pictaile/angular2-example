@@ -11,6 +11,7 @@ import { MainComponent }  from './main.component';
 import { AuthComponent }  from './auth/auth.component';
 import { AuthService }  from './auth/auth.service';
 
+import { User } from './auth/user'
 
 
 
@@ -36,7 +37,8 @@ import { AuthService }  from './auth/auth.service';
 
   ],
   providers: [
-    AuthService
+    AuthService,
+    User
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap:    [ MainComponent ]

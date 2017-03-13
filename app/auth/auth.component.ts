@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service'
+import { User } from './user'
 
 
 @Component({
@@ -11,26 +12,34 @@ import { AuthService } from './auth.service'
 })
 export class AuthComponent implements OnInit {
 
-    result:any = {
-        name:'',
-        age:''
-    };
+    result:boolean = false;
+    error:any = {};
 
-    constructor(private service:AuthService) {}
+    constructor(private authService:AuthService) {}
 
     ngOnInit() {
-        this.getData();
+        this.canActivate();
     }
 
 
-    getData() {
-        self = this;
-        this.service
-            .getData()
-            .subscribe(
-                res => {
-                    self.result = res;
-                })
+    canActivate() {
+        let result,
+            self = this;
+        this.authService.getRights().subscribe(
+            data => {
+                result = data;
+                if(result == 0) {
+                    self.result = true;
+                    //тут метод который необходимо выполнить если авторизован
+                }
+
+            },
+             err => {
+                 self.error = err;
+             });
+
     }
+
+
 
 }
