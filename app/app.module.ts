@@ -8,6 +8,12 @@ import { routing } from './app.routing';
 
 /*components*/
 import { MainComponent }  from './main.component';
+import { BaseComponent }  from './base/base.component';
+import { HomeComponent }  from './home/home.component';
+import { AboutComponent }  from './about/about.component';
+
+
+
 import { AuthComponent }  from './auth/auth.component';
 import { AuthService }  from './auth/auth.service';
 
@@ -32,8 +38,12 @@ import { User } from './auth/user'
 
   ],
   declarations: [
-    MainComponent,
     AuthComponent,
+
+    MainComponent,
+    BaseComponent,
+    AboutComponent,
+    HomeComponent
 
   ],
   providers: [
